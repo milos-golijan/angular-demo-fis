@@ -1,0 +1,14 @@
+<div *ngIf="options && options.length > 1" class="icon-switch" fxLayout="row">
+    <mat-icon
+        (click)="onSelect(first.value)"
+        class="option centered"
+        [ngClass]="{ 'active': selected === first.value }">
+        {{ first.icon }}
+    </mat-icon>
+    <mat-icon
+        (click)="onSelect(second.value)"
+        class="option centered"
+        [ngClass]="{ 'active': selected === second.value }">
+        {{ second.icon }}
+    </mat-icon>
+</div>

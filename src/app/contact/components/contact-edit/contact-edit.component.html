@@ -1,0 +1,10 @@
+<div class="edit-contact">
+    <h1>Edit Contact</h1>
+    <app-contact-form
+        *ngIf="contact"
+        [contact]="contact"
+        submitText="UPDATE"
+        (saved)="onSaveContact($event)"
+        (completed)="onCompleted()">
+    </app-contact-form>
+</div>

@@ -1,0 +1,30 @@
+<div class="contacts">
+    <h1>Contacts</h1>
+    <div class="actions" fxLayout="row" fxLayoutAlign="space-between">
+        <button (click)="onCreate()" mat-raised-button color="primary">CREATE NEW CONTACT</button>
+        <app-icon-switch
+            (changed)="onViewChanged($event)"
+            [options]="switchOptions">
+        </app-icon-switch>
+    </div>
+    <div
+        *ngIf="view === 'cards'"
+        class="contacts-cards"
+        fxLayout="row">
+        <app-contact-card
+            *ngFor="let contact of contacts"
+            (edit)="onEdit($event)"
+            (delete)="onDelete($event)"
+            [contact]="contact">
+        </app-contact-card>
+    </div>
+    <div
+        *ngIf="view === 'table'"
+        class="contacts-table">
+        <app-table
+            [data]="contacts"
+            [columns]="columns"
+            [options]="tableOptions">
+        </app-table>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+@import "../../../../assets/styles/colors.scss";
+
+.icon-switch {
+    padding: 4px;
+    width: 100px;
+    background-color: $dark-bacground;
+    border-radius: 5px;
+    .option {
+        cursor: pointer;
+        padding: 6px 0;
+        border-radius: 5px;
+        color: $background;
+        width: 50%;
+        transition: all 0.3s;
+        &.active {
+            color: $white;
+            background-color: $primary;
+        }
+    }
+}

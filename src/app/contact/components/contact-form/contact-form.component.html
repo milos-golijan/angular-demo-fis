@@ -1,0 +1,66 @@
+<mat-card class="contact-form">
+    <div *ngIf="error" class="error" fxLayout="row">{{ error }}</div>
+    <form [formGroup]="form">
+        <div fxLayout="row">
+            <mat-form-field>
+                <mat-label>First Name</mat-label>
+                <input formControlName="firstName" matInput>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Last Name</mat-label>
+                <input formControlName="lastName" matInput>
+            </mat-form-field>
+        </div>
+        <div fxLayout="row">
+            <mat-form-field>
+                <mat-label>E-Mail</mat-label>
+                <input formControlName="email" matInput>
+            </mat-form-field>
+        </div>
+        <div fxLayout="row">
+            <mat-form-field>
+                <mat-label>Title</mat-label>
+                <input formControlName="title" matInput>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Company</mat-label>
+                <input formControlName="company" matInput>
+            </mat-form-field>
+        </div>
+        <div fxLayout="row">
+            <mat-radio-group formControlName="gender" aria-label="Select a gender">
+                <mat-radio-button value="male">Male</mat-radio-button>
+                <mat-radio-button value="female">Female</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div fxLayout="row">
+            <mat-form-field>
+                <mat-label>Phone Number</mat-label>
+                <input formControlName="phoneNumber" matInput>
+            </mat-form-field>
+            <mat-form-field formGroupName="addressDetails">
+                <mat-label >ZIP</mat-label>
+                <input formControlName="zip" matInput>
+            </mat-form-field>
+        </div>
+        <div formGroupName="addressDetails" fxLayout="row">
+            <mat-form-field>
+                <mat-label>Address</mat-label>
+                <input formControlName="street" matInput>
+            </mat-form-field>
+        </div>
+        <div formGroupName="addressDetails" fxLayout="row">
+            <mat-form-field>
+                <mat-label>City</mat-label>
+                <input formControlName="city" matInput>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Country</mat-label>
+                <input formControlName="country" matInput>
+            </mat-form-field>
+        </div>
+        <div class="actions" fxLayout="row" fxLayoutAlign="flex-end">
+            <button (click)="onCreate()" [disabled]="!form.valid || submitted" mat-raised-button color="primary">{{ submitText }}</button>
+        </div>
+    </form>
+</mat-card>

@@ -1,0 +1,33 @@
+<mat-card class="contact">
+    <mat-card-header fxLayout="row-reverse" fxLayoutAlign="flex-end">
+        <div
+            class="initials centered"
+            [ngClass]="contact.gender">
+            {{ contact.fullName | initials }}
+        </div>
+        <mat-card-title>{{ contact.fullName }}</mat-card-title>
+        <mat-card-subtitle class="ellipsis">{{ contact.title }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content fxLayout="column" fxLayoutAlign="space-between">
+        <span fxLayout="row" fxLayoutAlign="flex-start center">
+            <mat-icon class="centered">work</mat-icon>
+            {{ contact.company }}
+        </span>
+        <span fxLayout="row" fxLayoutAlign="flex-start center">
+            <mat-icon class="centered">email</mat-icon>
+            {{ contact.email }}
+        </span>
+        <span fxLayout="row" fxLayoutAlign="flex-start center">
+            <mat-icon class="centered">call</mat-icon>
+            {{ contact.phoneNumber }}
+        </span>
+        <span fxLayout="row" fxLayoutAlign="flex-start center">
+            <mat-icon class="centered">home</mat-icon>
+            {{ contact.address }}
+        </span>
+    </mat-card-content>
+    <mat-card-actions fxLayout="row" fxLayoutAlign="flex-end">
+        <button (click)="onEdit()" mat-button color="accent">EDIT</button>
+        <button (click)="onDelete()" mat-button color="warn">DELETE</button>
+    </mat-card-actions>
+</mat-card>

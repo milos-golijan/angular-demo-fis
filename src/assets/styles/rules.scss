@@ -1,0 +1,10 @@
+.centered {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+.ellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

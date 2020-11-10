@@ -1,0 +1,43 @@
+@import "../../../../assets/styles/colors.scss";
+
+.contact-form {
+    margin: 20px 10px;
+    width: 400px;
+    padding: 30px 50px;
+    form {
+        width: 100%;
+    }
+    .mat-form-field {
+        margin: 10px 0;
+        width: 100%;
+        padding: 0 8px;
+    }
+    .mat-radio-group {
+        margin: 20px 0;
+        .mat-radio-button {
+            margin: 0 10px;
+        }
+    }
+    .actions {
+        margin: 15px 0;
+    }
+    .error {
+        width: auto;
+        padding: 7px 15px;
+        color: $white;
+        background-color: $warn-color;
+        border-radius: 4px;
+        margin-bottom: 20px;
+    }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+  -webkit-box-shadow: 0 0 0 30px #424242 inset !important;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: #FFFFFF !important;
+}

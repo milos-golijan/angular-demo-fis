@@ -1,0 +1,6 @@
+<div>
+  <app-header (sidebarToggled)="onToggleSidebar()"></app-header>
+  <app-sidebar-container [open]="sideNavOpen">
+    <router-outlet></router-outlet>
+  </app-sidebar-container>
+</div>
