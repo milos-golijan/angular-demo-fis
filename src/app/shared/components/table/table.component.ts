@@ -1,4 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+    Input,
+    OnInit,
+    Component,
+    ChangeDetectionStrategy,
+    Output,
+    EventEmitter
+} from '@angular/core';
 
 export type TableColumnDefinition = {
     field: string,
@@ -7,10 +14,13 @@ export type TableColumnDefinition = {
     rowGroup?: boolean,
     sortable?: boolean,
     editable?: boolean,
-    checkboxSelection?: boolean
+    checkboxSelection?: boolean,
+    valueSetter?: (params: any) => any,
+    valueGetter?: (params: any) => boolean
 };
 
 export type TableOptions = {
+    editType?: string;
     pagination?: boolean,
     singleClickEdit?: boolean,
     paginationPageSize?: number,
@@ -21,13 +31,18 @@ export type TableOptions = {
 @Component({
     selector: 'app-table',
     templateUrl: './table.component.html',
-    styleUrls: ['./table.component.scss']
+    styleUrls: ['./table.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TableComponent implements OnInit {
+
     @Input() data: any[];
     @Input() options: TableOptions;
     @Input() columns: TableColumnDefinition[];
-    public constructor() { }
+    @Output() updated: EventEmitter<any>;
+    public constructor() {
+        this.updated = new EventEmitter();
+    }
     public ngOnInit(): void {
         if (!this.options) {
             this.options = {

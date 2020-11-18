@@ -24,7 +24,6 @@
     "@angular/router": "~10.2.0",
     "@ngrx/effects": "^10.0.1",
     "@ngrx/store": "^10.0.1",
-    "@ngrx/store-devtools": "^10.0.1",
     "@types/faker": "^5.1.4",
     "ag-grid-angular": "^24.1.0",
     "ag-grid-community": "^24.1.0",

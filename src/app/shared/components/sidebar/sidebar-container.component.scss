@@ -10,39 +10,47 @@
         padding: 20px;
     }
     .sidebar {
-        padding-top: 10px;
         width: 64px;
         &.extended {
             width: 220px;
-            .sidebar-entry {
-                .text {
-                    display: inline-block;
+            .navigation-entries {
+                .sidebar-entry {
+                    .text {
+                        display: inline-block;
+                    }
                 }
             }
         }
-        .sidebar-entry {
-            cursor: pointer;
-            display: flex;
-            transition: background 0.2s;
-            .icon {
-                height: 48px;
-                width: 64px;
-            }
-            .text {
-                font-size: 24px;
-                line-height: 48px;
-                padding-left: 10px;
-                display: none;
-            }
-            &:hover {
-                background-color: $primary;
-            }
-            &.active {
-                border-radius: 0 6px 6px 0;
-                background-color: $primary;
+        .border-element {
+            font-size: 10px;
+            height: 40px;
+        }
+        .navigation-entries {
+            flex-grow: 1;
+            .sidebar-entry {
+                cursor: pointer;
+                display: flex;
+                transition: background 0.2s;
+                .icon {
+                    height: 48px;
+                    width: 64px;
+                }
+                .text {
+                    font-size: 24px;
+                    line-height: 48px;
+                    padding-left: 10px;
+                    display: none;
+                }
                 &:hover {
-                    border-radius: 0;
                     background-color: $primary;
+                }
+                &.active {
+                    border-radius: 0 6px 6px 0;
+                    background-color: $primary;
+                    &:hover {
+                        border-radius: 0;
+                        background-color: $primary;
+                    }
                 }
             }
         }

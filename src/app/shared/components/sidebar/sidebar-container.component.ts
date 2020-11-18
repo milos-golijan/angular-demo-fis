@@ -1,10 +1,16 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import {
+    Input,
+    OnInit,
+    Component,
+    ChangeDetectionStrategy,
+} from '@angular/core';
 import { Route, RoutingService } from '../../services/routing.service';
 
 @Component({
     selector: 'app-sidebar-container',
     templateUrl: './sidebar-container.component.html',
-    styleUrls: ['./sidebar-container.component.scss']
+    styleUrls: ['./sidebar-container.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SidebarContainerComponent implements OnInit {
 

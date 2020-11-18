@@ -1,4 +1,12 @@
-import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
+import {
+    Input,
+    Output,
+    OnChanges,
+    Component,
+    EventEmitter,
+    ChangeDetectionStrategy,
+    ChangeDetectorRef
+} from '@angular/core';
 
 export type IconSwitchOption = {
     value: string,
@@ -8,7 +16,8 @@ export type IconSwitchOption = {
 @Component({
     selector: 'app-icon-switch',
     templateUrl: './icon-switch.component.html',
-    styleUrls: ['./icon-switch.component.scss']
+    styleUrls: ['./icon-switch.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class IconSwitchComponent implements OnChanges {
 

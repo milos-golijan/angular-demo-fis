@@ -1,4 +1,4 @@
-import { map } from 'rxjs/operators';
+import { map, delay } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { LocalStorageService } from '../shared/services/local-storage.service';
@@ -12,8 +12,9 @@ import {
 } from '../test/test-data';
 import Contact from './contact.model';
 
-const CONTACTS_DATA_KEY = 'contacts';
+const REQUEST_DELAY = 2000;
 const CONTACTS_ARRAY_LENGTH = 32;
+const CONTACTS_DATA_KEY = 'contacts';
 
 @Injectable({
     providedIn: 'root'
@@ -33,6 +34,7 @@ export class ContactService {
             this.localStorage.set(CONTACTS_DATA_KEY, contacts);
         }
         return of(contacts).pipe(
+            delay(REQUEST_DELAY),
             map((contactsData: any[]) => {
                 return contactsData.map(contactData => Deserialize(contactData, Contact));
             }
@@ -43,7 +45,7 @@ export class ContactService {
         const contacts = this.localStorage.get(CONTACTS_DATA_KEY) as Contact[];
         contacts.push(Serialize(contact));
         this.localStorage.set(CONTACTS_DATA_KEY, contacts);
-        return of({});
+        return of({}).pipe(delay(REQUEST_DELAY));
     }
 
     public update(updatedContact: Contact): Observable<any> {
@@ -52,13 +54,13 @@ export class ContactService {
         contacts = contacts.filter(contact => contact.id !== updatedContact.id);
         contacts.splice(index, 0, Serialize(updatedContact));
         this.localStorage.set(CONTACTS_DATA_KEY, contacts);
-        return of({});
+        return of({}).pipe(delay(REQUEST_DELAY));
     }
 
     public delete(contactId: string): Observable<any> {
         let contacts = this.localStorage.get(CONTACTS_DATA_KEY) as Contact[];
         contacts = contacts.filter(contact => contact.id !== contactId);
         this.localStorage.set(CONTACTS_DATA_KEY, contacts);
-        return of({});
+        return of({}).pipe(delay(REQUEST_DELAY));
     }
 }

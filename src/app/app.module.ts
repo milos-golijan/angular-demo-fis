@@ -11,8 +11,6 @@ import { EffectsModule } from '@ngrx/effects';
 import { SharedModule } from './shared/shared.module';
 import { ContactModule } from './contact/contact.module';
 import { HomeModule } from './home/home.module';
-import {StoreDevtoolsModule} from '@ngrx/store-devtools';
-import {environment} from '../environments/environment';
 
 @NgModule({
     declarations: [
@@ -25,11 +23,7 @@ import {environment} from '../environments/environment';
         BrowserModule,
         AppRoutingModule,
         StoreModule.forRoot({}),
-        EffectsModule.forRoot([]),
-        StoreDevtoolsModule.instrument({
-        maxAge: 25, // Retains last 25 states
-        logOnly: environment.production, // Restrict extension to log-only mode
-      }),
+        EffectsModule.forRoot([])
     ],
     bootstrap: [
         AppComponent

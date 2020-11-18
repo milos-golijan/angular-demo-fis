@@ -1,0 +1,6 @@
+<div *ngIf="loading" class="loading" fxLayout="row" fxLayoutAlign="center" fxFlex>
+  <div fxLayout="column" fxLayoutAlign="center center" >
+    <mat-spinner [diameter]="200"></mat-spinner>
+    <span class="label">{{ label }}</span>
+  </div>
+</div>

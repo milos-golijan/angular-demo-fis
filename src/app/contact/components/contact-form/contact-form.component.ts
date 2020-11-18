@@ -1,7 +1,15 @@
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import {
+    Input,
+    OnInit,
+    Output,
+    OnDestroy,
+    Component,
+    EventEmitter,
+    ChangeDetectionStrategy
+} from '@angular/core';
 import {
     ContactState,
     getFormComplete,
@@ -15,7 +23,8 @@ import Contact from '../../contact.model';
 @Component({
     selector: 'app-contact-form',
     templateUrl: './contact-form.component.html',
-    styleUrls: ['./contact-form.component.scss']
+    styleUrls: ['./contact-form.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactFormComponent implements OnInit, OnDestroy {
 
@@ -24,7 +33,7 @@ export class ContactFormComponent implements OnInit, OnDestroy {
     @Output() saved: EventEmitter<Contact>;
     @Output() completed: EventEmitter<void>;
     public error: string;
-    public submitted: boolean;
+    public submited: boolean;
     public form: FormGroup;
     private errorSubscription: Subscription;
     private completeSubscription: Subscription;
@@ -81,7 +90,7 @@ export class ContactFormComponent implements OnInit, OnDestroy {
             company: new FormControl(this.contact?.company, Validators.required),
             phoneNumber: new FormControl(this.contact?.phoneNumber, Validators.required),
             addressDetails: new FormGroup({
-                zip: new FormControl(this.contact?.addressDetails?.zip, [ Validators.required]),
+                zip: new FormControl(this.contact?.addressDetails?.zip, [ Validators.required, Validators.maxLength(5) ]),
                 city: new FormControl(this.contact?.addressDetails?.city, Validators.required),
                 street: new FormControl(this.contact?.addressDetails?.street, Validators.required),
                 country: new FormControl(this.contact?.addressDetails?.country, Validators.required)

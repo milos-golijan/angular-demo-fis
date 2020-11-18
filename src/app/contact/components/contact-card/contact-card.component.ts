@@ -2,16 +2,20 @@ import {
     Input,
     Output,
     Component,
-    EventEmitter
+    EventEmitter,
+    ChangeDetectionStrategy
 } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { InitialsPipe } from 'src/app/shared/pipes/initials.pipe';
 import { ConfirmDialogComponent } from '../../../shared/components/dialog/confirm-dialog/confirm-dialog.component';
 import Contact from '../../contact.model';
 
 @Component({
     selector: 'app-contact-card',
     templateUrl: './contact-card.component.html',
-    styleUrls: ['./contact-card.component.scss']
+    styleUrls: ['./contact-card.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [ InitialsPipe ]
 })
 export class ContactCardComponent {
 

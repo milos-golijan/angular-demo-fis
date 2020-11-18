@@ -1,28 +1,35 @@
 <mat-sidenav-container
-    autosize
-    class="sidebar-container">
-    <mat-sidenav
-        [mode]="'side'"
-        [opened]="true"
-        autoFocus
-        class="sidebar"
-        [ngClass]="{ 'extended': open }">
+  autosize
+  class="sidebar-container">
+  <mat-sidenav
+    [mode]="'side'"
+    [opened]="true"
+    autoFocus
+    class="sidebar"
+    fxLayout="column"
+    [ngClass]="{ 'extended': open }">
+    <div fxLayout="column" fxFlex>
+      <div class="border-element centered"> Top Item</div>
+      <div class="navigation-entries" fxFlex>
         <div
-            (click)="onNavigate('')"
-            [ngClass]="{ 'active': isActive('/', true) }"
-            class="sidebar-entry">
-            <mat-icon class="icon centered">home</mat-icon>
-            <span class="text">Home</span>
+          (click)="onNavigate('')"
+          [ngClass]="{ 'active': isActive('/', true) }"
+          class="sidebar-entry">
+          <mat-icon class="icon centered">home</mat-icon>
+          <span class="text">Home</span>
         </div>
         <div
-            (click)="onNavigate('contact/list')"
-            [ngClass]="{ 'active': isActive('/contact') }"
-            class="sidebar-entry">
-            <mat-icon class="icon centered">person</mat-icon>
-            <span class="text">Contacts</span>
+          (click)="onNavigate('contact/list')"
+          [ngClass]="{ 'active': isActive('/contact') }"
+          class="sidebar-entry">
+          <mat-icon class="icon centered">person</mat-icon>
+          <span class="text">Contacts</span>
         </div>
-    </mat-sidenav>
-    <mat-sidenav-content class="content">
-        <ng-content></ng-content>
-    </mat-sidenav-content>
+      </div>
+      <div class="border-element centered"> Bottom Item</div>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content class="content">
+    <ng-content></ng-content>
+  </mat-sidenav-content>
 </mat-sidenav-container>

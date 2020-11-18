@@ -6,10 +6,10 @@ const UNKNOWN_VALUE = 'N/A';
 @Pipe({ name: PIPE_KEY })
 export class InitialsPipe implements PipeTransform {
     transform(value: string): string {
-        const nameParts = value.split(' ');
-        if (nameParts.length === 0) {
+        if (!value) {
             return UNKNOWN_VALUE;
         }
+        const nameParts = value.split(' ');
         let initials = nameParts[0].charAt(0);
         if (nameParts.length < 2) {
             return initials.toUpperCase();

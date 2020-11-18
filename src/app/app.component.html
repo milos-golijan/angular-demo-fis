@@ -1,6 +1,7 @@
 <div>
-  <app-header (sidebarToggled)="onToggleSidebar()"></app-header>
-  <app-sidebar-container [open]="sideNavOpen">
-    <router-outlet></router-outlet>
-  </app-sidebar-container>
+    <app-header (sidebarToggled)="onToggleSidebar()"></app-header>
+    <app-sidebar-container [open]="sideNavOpen">
+        <router-outlet></router-outlet>
+    </app-sidebar-container>
 </div>
+<app-loader label="Loading"></app-loader>

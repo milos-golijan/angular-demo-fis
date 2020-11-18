@@ -25,7 +25,7 @@ export default class Contact {
         return `${this.firstName} ${this.lastName}`;
     }
 
-    constructor(data?: Partial<Contact>) {
+    public constructor(data?: Partial<Contact>) {
         this.id = faker.random.alphaNumeric(ID_CHAR_LENGTH);
         if (data) {
             Object.assign(this, data);
