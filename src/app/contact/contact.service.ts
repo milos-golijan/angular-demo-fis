@@ -1,6 +1,6 @@
-import { map, delay } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { map, delay } from 'rxjs/operators';
 import { LocalStorageService } from '../shared/services/local-storage.service';
 import {
     Serialize,
@@ -12,7 +12,7 @@ import {
 } from '../test/test-data';
 import Contact from './contact.model';
 
-const REQUEST_DELAY = 2000;
+const REQUEST_DELAY = 500;
 const CONTACTS_ARRAY_LENGTH = 32;
 const CONTACTS_DATA_KEY = 'contacts';
 

@@ -28,14 +28,24 @@ export const genContactData = () => {
         title: faker.name.jobTitle(),
         company: faker.company.companyName(),
         phoneNumber: faker.phone.phoneNumber(PHONE_NUMBER_FORMAT),
+        signUpDate: faker.date.past(5),
         addressDetails: genAddressData()
     };
 };
 
-export const genArray = (genFunction, length = faker.random.number(
+export const genCompanyData = () => {
+    return {
+        id: faker.random.alphaNumeric(ID_CHAR_LENGTH),
+        name: faker.company.companyName(),
+        moto: faker.company.catchPhrase(),
+        website: faker.internet.url()
+    };
+};
+
+export const genArray = (genFunction: () => any, length = faker.random.number(
     { min: DEFAULT_MIN_ARRAY_LENGTH, max: DEFAULT_MAX_ARRAY_LENGTH }
 )) => {
-    const newArray = [];
+    const newArray: any[] = [];
     for (let i = 0; i < length; i++) {
         newArray.push(genFunction());
     }

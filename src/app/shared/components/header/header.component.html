@@ -4,4 +4,15 @@
     </button>
     <img src="assets/angular-logo.png" width="150" height="40" />
     <span>Technologies presentation demo</span>
+    <mat-select [value]="workspace$ | async" (selectionChange)="onWorkspaceChanged($event.value)">
+        <mat-option value="workspace1">
+            workspace1
+        </mat-option>
+        <mat-option value="workspace2">
+            workspace2
+        </mat-option>
+        <mat-option value="workspace3">
+            workspace3
+        </mat-option>
+    </mat-select>
 </mat-toolbar>

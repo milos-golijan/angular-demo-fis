@@ -30,7 +30,7 @@ export class ContactListComponent implements OnInit, OnDestroy {
     public tableOptions: TableOptions;
     public switchOptions: IconSwitchOption[];
     public columns: TableColumnDefinition[];
-    private contactsSubscription: Subscription;
+    public contactsSubscription: Subscription;
 
     public constructor(
         private routingService: RoutingService,

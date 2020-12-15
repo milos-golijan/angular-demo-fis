@@ -1,0 +1,11 @@
+<div class="companies">
+    <h1>Companies</h1>
+    <div
+        class="company-cards"
+        fxLayout="row">
+        <app-company-card
+            *ngFor="let company of (companies | async)"
+            [company]="company">
+        </app-company-card>
+    </div>
+</div>

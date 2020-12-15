@@ -20,7 +20,7 @@ export class HomeComponent {
         this.routingService.navigate(Route.ContactNew);
     }
 
-    public onOverview(): void {
-        this.routingService.navigate(Route.Overview);
+    public onViewCompanies(): void {
+        this.routingService.navigate(Route.CompanyList);
     }
 }

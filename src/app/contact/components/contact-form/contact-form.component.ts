@@ -20,6 +20,8 @@ import {
 } from '../../state/contact.actions';
 import Contact from '../../contact.model';
 
+const DEFAULT_TITLE = 'CREATE';
+
 @Component({
     selector: 'app-contact-form',
     templateUrl: './contact-form.component.html',
@@ -47,7 +49,7 @@ export class ContactFormComponent implements OnInit, OnDestroy {
 
     public ngOnInit(): void {
         if (!this.submitText) {
-            this.submitText = 'CREATE';
+            this.submitText = DEFAULT_TITLE;
         }
         this.store.dispatch(contactFormRestart());
         this.errorSubscription = this.store
@@ -70,7 +72,7 @@ export class ContactFormComponent implements OnInit, OnDestroy {
         this.completeSubscription.unsubscribe();
     }
 
-    public onCreate(): void {
+    public onComplete(): void {
         if (this.form.valid) {
             const newContact = new Contact(this.form.value);
             if (this.contact) {
@@ -90,7 +92,7 @@ export class ContactFormComponent implements OnInit, OnDestroy {
             company: new FormControl(this.contact?.company, Validators.required),
             phoneNumber: new FormControl(this.contact?.phoneNumber, Validators.required),
             addressDetails: new FormGroup({
-                zip: new FormControl(this.contact?.addressDetails?.zip, [ Validators.required, Validators.maxLength(5) ]),
+                zip: new FormControl(this.contact?.addressDetails?.zip, [ Validators.required ]),
                 city: new FormControl(this.contact?.addressDetails?.city, Validators.required),
                 street: new FormControl(this.contact?.addressDetails?.street, Validators.required),
                 country: new FormControl(this.contact?.addressDetails?.country, Validators.required)

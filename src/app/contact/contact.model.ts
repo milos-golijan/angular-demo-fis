@@ -17,9 +17,10 @@ export default class Contact {
     @autoserialize lastName: string;
     @autoserialize firstName: string;
     @autoserialize phoneNumber: string;
+    @autoserializeAs(Date, 'signUpDate') signUpDate: Date;
     @autoserializeAs(Address) addressDetails: Address;
     public get address(): string {
-        return this.addressDetails?.fullAdress;
+        return this.addressDetails?.fullAddress;
     }
     public get fullName(): string {
         return `${this.firstName} ${this.lastName}`;

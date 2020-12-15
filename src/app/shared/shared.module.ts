@@ -20,6 +20,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -48,6 +49,7 @@ import { LoaderComponent } from './components/loader/loader.component';
         MatInputModule,
         MatDialogModule,
         MatButtonModule,
+        MatSelectModule,
         MatSidenavModule,
         MatToolbarModule,
         MatProgressSpinnerModule,
@@ -65,6 +67,7 @@ import { LoaderComponent } from './components/loader/loader.component';
         MatInputModule,
         MatDialogModule,
         MatButtonModule,
+        MatSelectModule,
         MatSidenavModule,
         MatToolbarModule,
         MatProgressSpinnerModule,

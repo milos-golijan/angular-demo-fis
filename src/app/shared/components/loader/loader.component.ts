@@ -1,5 +1,5 @@
+import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { Subscription } from 'rxjs';
 import {
     Input,
     OnInit,
@@ -15,18 +15,14 @@ import { getIsLoading, SharedState } from '../../state/shared.reducer';
 export class LoaderComponent implements OnInit {
 
     @Input() label: string;
-    public loading: boolean;
-    public loadingSubscription: Subscription;
+    public loading$: Observable<boolean>;
 
     public constructor(
         private store: Store<{ shared: SharedState }>
     ) { }
 
     public ngOnInit(): void {
-        this.loadingSubscription = this.store
-        .select(getIsLoading)
-        .subscribe(isLoading => {
-            this.loading = isLoading;
-        });
+        this.loading$ = this.store
+        .select(getIsLoading);
     }
 }

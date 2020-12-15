@@ -23,7 +23,7 @@ export class ContactEditComponent implements OnInit, OnDestroy {
     public contact: Contact;
     public contactId: string;
     public submited: boolean;
-    private editedContactSubscription: Subscription;
+    public editedContactSubscription: Subscription;
 
     public constructor(
         private route: ActivatedRoute,

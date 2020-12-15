@@ -1,0 +1,16 @@
+<mat-card *ngIf="company" class="company">
+    <mat-card-header fxLayout="row-reverse" fxLayoutAlign="flex-end">
+        <mat-card-title>{{ company.name }}</mat-card-title>
+        <mat-card-subtitle class="ellipsis">{{ company.moto }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content fxLayout="column" fxLayoutAlign="space-between">
+        <span fxLayout="row" fxLayoutAlign="flex-start center">
+            <mat-icon class="centered">public</mat-icon>
+            {{ company.website }}
+        </span>
+        <span fxLayout="row" fxLayoutAlign="flex-start center">
+            <mat-icon class="centered">chat_bubble_outline</mat-icon>
+            {{ company.moto }}
+        </span>
+    </mat-card-content>
+</mat-card>

@@ -6,7 +6,7 @@ export default class Address {
     @autoserialize city: string;
     @autoserialize street: string;
     @autoserialize country: string;
-    public get fullAdress(): string {
+    public get fullAddress(): string {
         return `${this.street}, ${this.city}, ${this.country}`;
     }
 

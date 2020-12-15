@@ -60,7 +60,7 @@
             </mat-form-field>
         </div>
         <div class="actions" fxLayout="row" fxLayoutAlign="flex-end">
-            <button (click)="onCreate()" [disabled]="!form.valid || submited" mat-raised-button color="primary">{{ submitText }}</button>
+            <button (click)="onComplete()" [disabled]="!form.valid || submited" mat-raised-button color="primary">{{ submitText }}</button>
         </div>
     </form>
 </mat-card>

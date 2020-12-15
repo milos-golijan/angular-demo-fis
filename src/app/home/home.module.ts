@@ -5,7 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 
 // Imports
 import { SharedModule } from '../shared/shared.module';
-import { ContactRoutingModule } from './home.routing.module';
+import { HomeRoutingModule } from './home.routing.module';
 
 @NgModule({
     declarations: [
@@ -13,7 +13,7 @@ import { ContactRoutingModule } from './home.routing.module';
     ],
     imports: [
         SharedModule,
-        ContactRoutingModule
+        HomeRoutingModule
     ]
 })
 export class HomeModule { }

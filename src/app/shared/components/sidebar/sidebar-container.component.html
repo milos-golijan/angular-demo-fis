@@ -1,35 +1,28 @@
-<mat-sidenav-container
-  autosize
-  class="sidebar-container">
-  <mat-sidenav
-    [mode]="'side'"
-    [opened]="true"
-    autoFocus
-    class="sidebar"
-    fxLayout="column"
-    [ngClass]="{ 'extended': open }">
-    <div fxLayout="column" fxFlex>
-      <div class="border-element centered"> Top Item</div>
-      <div class="navigation-entries" fxFlex>
-        <div
-          (click)="onNavigate('')"
-          [ngClass]="{ 'active': isActive('/', true) }"
-          class="sidebar-entry">
-          <mat-icon class="icon centered">home</mat-icon>
-          <span class="text">Home</span>
+<mat-sidenav-container autosize class="sidebar-container">
+    <mat-sidenav [mode]="'side'" [opened]="true" autoFocus class="sidebar" fxLayout="column"
+        [ngClass]="{ 'extended': open }">
+        <div fxLayout="column" fxFlex>
+            <div class="border-element centered"> Top Item</div>
+            <div class="navigation-entries" fxFlex>
+                <div (click)="onNavigate('')" [ngClass]="{ 'active': isActive('/', true) }" class="sidebar-entry">
+                    <mat-icon class="icon centered">home</mat-icon>
+                    <span class="text">Home</span>
+                </div>
+                <div (click)="onNavigate('contact')" [ngClass]="{ 'active': isActive('/contact') }"
+                    class="sidebar-entry">
+                    <mat-icon class="icon centered">person</mat-icon>
+                    <span class="text">Contacts</span>
+                </div>
+                <div (click)="onNavigate('company')" [ngClass]="{ 'active': isActive('/company') }"
+                    class="sidebar-entry">
+                    <mat-icon class="icon centered">business</mat-icon>
+                    <span class="text">Companies</span>
+                </div>
+            </div>
+            <div class="border-element centered"> Bottom Item</div>
         </div>
-        <div
-          (click)="onNavigate('contact/list')"
-          [ngClass]="{ 'active': isActive('/contact') }"
-          class="sidebar-entry">
-          <mat-icon class="icon centered">person</mat-icon>
-          <span class="text">Contacts</span>
-        </div>
-      </div>
-      <div class="border-element centered"> Bottom Item</div>
-    </div>
-  </mat-sidenav>
-  <mat-sidenav-content class="content">
-    <ng-content></ng-content>
-  </mat-sidenav-content>
+    </mat-sidenav>
+    <mat-sidenav-content class="content">
+        <ng-content></ng-content>
+    </mat-sidenav-content>
 </mat-sidenav-container>

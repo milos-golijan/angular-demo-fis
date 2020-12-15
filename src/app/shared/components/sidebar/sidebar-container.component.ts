@@ -3,6 +3,7 @@ import {
     OnInit,
     Component,
     ChangeDetectionStrategy,
+    ChangeDetectorRef,
 } from '@angular/core';
 import { Route, RoutingService } from '../../services/routing.service';
 
@@ -18,12 +19,14 @@ export class SidebarContainerComponent implements OnInit {
     private route: string;
 
     public constructor(
+        private changeDetection: ChangeDetectorRef,
         private routingService: RoutingService
     ) { }
 
     public ngOnInit(): void {
         this.routingService.route.subscribe((route: string) => {
             this.route = route;
+            this.changeDetection.markForCheck();
         });
     }
 
@@ -31,7 +34,7 @@ export class SidebarContainerComponent implements OnInit {
         if (!this.route) {
             return false;
         }
-        return matchFull ? this.route === route : this.route.startsWith(route);
+        return matchFull ? this.route === route : this.route.includes(route);
     }
 
     public onNavigate(route: string): void {

@@ -28,6 +28,10 @@ export type TableOptions = {
     // add other needed options from https://www.ag-grid.com/javascript-grid-properties/
 };
 
+export const DEFAULT_TABLE_OPTIONS = {
+    // default options
+};
+
 @Component({
     selector: 'app-table',
     templateUrl: './table.component.html',
@@ -45,9 +49,7 @@ export class TableComponent implements OnInit {
     }
     public ngOnInit(): void {
         if (!this.options) {
-            this.options = {
-                // default options
-            };
+            this.options = DEFAULT_TABLE_OPTIONS;
         }
     }
 }

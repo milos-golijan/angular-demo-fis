@@ -2,11 +2,13 @@ import { createFeatureSelector, createReducer, createSelector, on } from '@ngrx/
 import * as actions from './shared.actions';
 
 export type SharedState = {
-    inProgress: number
+    inProgress: number,
+    workspace?: string,
 };
 
 const initialState: SharedState = {
-    inProgress: 0
+    inProgress: 0,
+    workspace: 'workspace1'
 };
 
 const getSharedFeatureState = createFeatureSelector<SharedState>('shared');
@@ -14,6 +16,11 @@ const getSharedFeatureState = createFeatureSelector<SharedState>('shared');
 export const getIsLoading = createSelector(
     getSharedFeatureState,
     state => state.inProgress > 0
+);
+
+export const getWorkspace = createSelector(
+    getSharedFeatureState,
+    state => state.workspace
 );
 
 export const sharedReducer = createReducer<SharedState>(
@@ -28,6 +35,12 @@ export const sharedReducer = createReducer<SharedState>(
         return {
             ...state,
             inProgress: state.inProgress - 1
+        };
+    }),
+    on(actions.changeWorkspace, (state: SharedState, action) => {
+        return {
+            ...state,
+            workspace: action.workspace
         };
     })
 );

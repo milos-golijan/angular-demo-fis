@@ -1,0 +1,31 @@
+@import "../../../../assets/styles/colors";
+
+.company {
+    margin: 10px;
+    width: 300px;
+    .initials {
+        font-size: 22px;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        &.male {
+            background-color: $blue;
+        }
+        &.female {
+            background-color: $pink;
+        }
+    }
+    .mat-card-subtitle {
+        word-wrap: none;
+    }
+    .mat-card-content {
+        margin: 0 -16px;
+        padding: 16px;
+        min-height: 100px;
+        background-color: darken($background, 10%);
+        .mat-icon {
+            margin-right: 8px;
+            font-size: 16px;
+        }
+    }
+}

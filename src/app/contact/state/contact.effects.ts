@@ -1,7 +1,7 @@
-import { Observable, of } from 'rxjs';
+import { of } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Injectable } from '@angular/core';
-import { switchMap, zip, catchError } from 'rxjs/operators';
+import { switchMap, catchError } from 'rxjs/operators';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { ContactService } from '../contact.service';
 import { startLoading, finishLoading } from 'src/app/shared/state/shared.actions';
@@ -24,14 +24,14 @@ export class ContactEffects {
         switchMap((action: any) => {
             this.store.dispatch(startLoading());
             return this.service.create(action.contact as Contact).pipe(
-                catchError(error => {
-                    this.store.dispatch(finishLoading());
-                    return of(contactFormError({ error }));
-                }),
                 switchMap((contact: Contact) => {
                     this.store.dispatch(finishLoading());
                     this.store.dispatch(contactFormComplete());
                     return of(addContactSuccess({ contact }));
+                }),
+                catchError(error => {
+                    this.store.dispatch(finishLoading());
+                    return of(contactFormError({ error }));
                 })
             );
         })
@@ -39,7 +39,7 @@ export class ContactEffects {
 
     @Effect() load = this.actions.pipe(
         ofType(ContactActionType.Load),
-        switchMap((action: any) => {
+        switchMap(() => {
             this.store.dispatch(startLoading());
             return this.service.getAll().pipe(
                 switchMap((contacts: Contact[]) => {
@@ -55,14 +55,14 @@ export class ContactEffects {
         switchMap((action: any) => {
             this.store.dispatch(startLoading());
             return this.service.update(action.contact).pipe(
-                catchError(error => {
-                    this.store.dispatch(finishLoading());
-                    return of(contactFormError({ error }));
-                }),
                 switchMap(() => {
                     this.store.dispatch(finishLoading());
                     this.store.dispatch(contactFormComplete());
                     return of(updateContactSuccess({ contact: action.contact }));
+                }),
+                catchError(error => {
+                    this.store.dispatch(finishLoading());
+                    return of(contactFormError({ error }));
                 })
             );
         })
